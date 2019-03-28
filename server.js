@@ -1,10 +1,22 @@
-const express = require("express");
+import * as express from "express";
+import * as http from "http";
+import * as WebSocket from "ws";
+
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const server = http.createServer(app);
+
+const wss = new WebSocket.Server({ server });
+
+wss.on("connection", ws => {
+  ws.on("message", message => {
+    console.log("received %s", message);
+    ws.send(`Hello, you sent -> ${message}`);
+  });
+
+  ws.send(`Hi, I'm a motherfucking websocket server`);
 });
 
-app.listen(3000, () => {
-  console.log("Example app listening on port 3000!");
+server.listen(process.env.PORT || 8999, () => {
+  console.log(`started server on port ${server.address().port}`);
 });

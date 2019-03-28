@@ -6,6 +6,14 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4"
-  }
+    "express": "^4.16.4",
+    "ws": "^6.2.1"
+  },
+  "name": "beehayrtc",
+  "version": "0.0.1",
+  "description": "beehayrtc",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "RB",
+  "license": "MIT"
 }
