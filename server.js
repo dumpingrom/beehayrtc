@@ -8,6 +8,10 @@ const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server });
 
+server.get("/", (req, res) => {
+  res.send("<em>GTFO</em>");
+});
+
 wss.on("connection", ws => {
   ws.on("message", message => {
     console.log("received %s", message);
@@ -20,4 +24,3 @@ wss.on("connection", ws => {
 server.listen(process.env.PORT || 8999, () => {
   console.log(`started server on port ${server.address().port}`);
 });
-
