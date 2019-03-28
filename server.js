@@ -8,8 +8,8 @@ const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server });
 
-server.get("/", (req, res) => {
-  res.send("<em>GTFO</em>");
+app.get('/', (req, res) => {
+  res.send('<em>GTFO</em>');
 });
 
 wss.on("connection", ws => {
