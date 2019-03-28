@@ -1,0 +1,8 @@
+{
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
